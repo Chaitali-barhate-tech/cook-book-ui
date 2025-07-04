@@ -1,0 +1,21 @@
+<header>
+    <div class="logo">
+        <a routerLink="/"><img src="../../../../assets/images/cookbook-logo.png" /></a>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a [routerLink]="['/recipes']" [queryParams]="{p: 1}">Recipes</a>
+            </li>
+            <li>
+                <a routerLink="/users">Users</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <a>
+            <mat-icon>person</mat-icon>
+        </a>
+    </div>
+</header>
+

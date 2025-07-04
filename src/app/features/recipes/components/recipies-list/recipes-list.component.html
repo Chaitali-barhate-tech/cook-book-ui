@@ -1,0 +1,19 @@
+<div *ngIf="recipesList.length" class="recipes-list">
+    <div *ngFor="let recipe of recipesList" class="recipe-tile">
+        <div class="country">
+            <span>{{recipe.country}}</span>
+        </div>
+        <div class="name">
+            <h3>{{recipe.Name}}</h3>
+            <p>{{recipe.Description}}</p>
+        </div>
+        <div class="recipe-info">
+            <p>Recipe By: <span>{{recipe.Author}}</span></p>
+            <p>Cooking Time: <span>{{recipe.totalTime}} mins</span></p>
+        </div>
+        <div class="details-link">
+            <a routerLink="{{recipe._id}}">Read Details >></a>
+        </div>
+    </div>
+    <app-pagination></app-pagination>
+</div>

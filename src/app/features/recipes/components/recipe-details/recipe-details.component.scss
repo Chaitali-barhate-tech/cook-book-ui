@@ -1,0 +1,78 @@
+.recipe-details {
+    margin: 30px auto;
+    padding: 20px 30px;
+    max-width: 1000px;
+    box-shadow: inset 0px 0px 10px 3px #b5b5b5;
+    .recipe-title {
+        margin-bottom: 10px;
+        h2 {
+            text-align: center;
+            color: #a41e00;
+        }
+    }
+    .recipe-description {
+        text-align: center;
+        color: #7a6b67;
+        margin-bottom: 15px;
+    }
+    .recipe-time {
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        padding: 10px 0;
+        color: #703123;
+        border-top: 1px solid #aaa;
+        border-bottom: 1px solid #aaa;
+        h4 {
+            color: #575757;
+        }
+        p {
+            font-size: 14px;
+            color: #8d5c50;
+        }
+        .prep-time, .cook-time, .total-time {
+            flex: 1;
+        }
+        .time {
+            font-weight: 600;
+            font-size: 16px;
+            vertical-align: bottom;
+            color: #703123;
+        }
+        .prep-time, .cook-time {
+            border-right: 1px solid #aaa;
+        }
+    }
+    .ingredients-list {
+        margin-bottom: 20px;
+        h3 {
+            margin-bottom: 10px;
+            color: #40180f;
+        }
+        ul {
+            padding-left: 20px;
+            columns: 2;
+            li {
+                list-style-type: disclosure-closed;
+                padding: 5px 0 5px 2px;
+                color: #333;
+            }
+        }
+    }
+    .method {
+        margin-bottom: 15px;
+        h3 {
+            margin-bottom: 10px;
+            color: #40180f;
+        }
+        ul {
+            padding-left: 20px;
+            li {
+                list-style-type: decimal;
+                padding: 5px 0 5px 2px;
+                color: #333;
+            }
+        }
+    }
+}

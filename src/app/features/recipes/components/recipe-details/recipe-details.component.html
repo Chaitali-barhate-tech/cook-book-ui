@@ -1,0 +1,34 @@
+<div *ngIf="recipeDetails" class="recipe-details">
+    <div class="recipe-title">
+        <h2>{{recipeDetails.Name}}</h2>
+    </div>
+    <div class="recipe-description">
+        <p>{{recipeDetails.Description}}</p>
+    </div>
+    <div class="recipe-time">
+        <div class="prep-time">
+            <h4>Prep Time</h4>
+            <p><span class="time">{{recipeDetails.prepTime}}</span> mins</p>
+        </div>
+        <div class="cook-time">
+            <h4>Cook Time</h4>
+            <p><span class="time">{{recipeDetails.cookTime}}</span> mins</p>
+        </div>
+        <div class="total-time">
+            <h4>Total Time</h4>
+            <p><span class="time">{{recipeDetails.totalTime}}</span> mins</p>
+        </div>
+    </div>
+    <div class="ingredients-list">
+        <h3>Ingredients: </h3>
+        <ul>
+            <li *ngFor="let ingredient of recipeDetails.Ingredients">{{ingredient}}</li>
+        </ul>
+    </div>
+    <div class="method">
+        <h3>Method: </h3>
+        <ul>
+            <li *ngFor="let method of recipeDetails.Method">{{method}}</li>
+        </ul>
+    </div>
+</div>
