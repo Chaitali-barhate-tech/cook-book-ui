@@ -1,9 +1,19 @@
 <div *ngIf="recipeDetails" class="recipe-details">
+    <!-- Auther -->
+     <!-- Country -->
     <div class="recipe-title">
         <h2>{{recipeDetails.Name}}</h2>
     </div>
     <div class="recipe-description">
         <p>{{recipeDetails.Description}}</p>
+    </div>
+    <div class="recipe-owner">
+        <div class="author-name">
+            <p>Recipe By: <span>{{recipeDetails.Author}}</span></p>
+        </div>
+        <div class="origin-country">
+            <p>Country of Origin: <span>{{recipeDetails.country}}</span></p>
+        </div>
     </div>
     <div class="recipe-time">
         <div class="prep-time">
@@ -20,13 +30,13 @@
         </div>
     </div>
     <div class="ingredients-list">
-        <h3>Ingredients: </h3>
+        <h3>Ingredients</h3>
         <ul>
-            <li *ngFor="let ingredient of recipeDetails.Ingredients">{{ingredient}}</li>
+            <li *ngFor="let ingredient of recipeDetails.Ingredients"><span>{{ingredient}}</span></li>
         </ul>
     </div>
     <div class="method">
-        <h3>Method: </h3>
+        <h3>Method</h3>
         <ul>
             <li *ngFor="let method of recipeDetails.Method">{{method}}</li>
         </ul>

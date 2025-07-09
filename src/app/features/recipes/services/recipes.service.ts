@@ -16,7 +16,7 @@ export class RecipesService {
   }
 
   getRecipieDetails(id: Number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.url}/recipes/${id}`);
+    return this.http.get<any[]>(`${this.url}/recipes/details/${id}`);
   }
 
 }

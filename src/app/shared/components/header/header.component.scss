@@ -9,10 +9,13 @@ header {
         max-height: 60px;
     }
     .navigation {
-        ul li {
-            padding: 10px 15px;
-            a:hover {
-                text-decoration: underline;
+        ul {
+            display: flex;
+            li {
+                padding: 10px 15px;
+                a:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
