@@ -9,6 +9,8 @@ import { RecipesService } from '../../services/recipes.service';
 })
 export class RecipesListComponent implements OnInit {
   public recipesList: any[] = [];
+  public totalCount: number = 0;
+  public recordsPerPage: number = 10;
   constructor(private recipesService: RecipesService, private route: ActivatedRoute) {
 
   }
@@ -16,8 +18,11 @@ export class RecipesListComponent implements OnInit {
   getRecipesList(page:Number) {
     this.recipesService.getRecipiesList(page).subscribe({
       next: (data) => {
-        this.recipesList = data;
+        this.recipesList = data[0].recipeData;
+        this.totalCount = data[0].total[0]?.totalCount;
         console.log('Data >>> ', this.recipesList);
+        console.log('totalCount >>> ', this.totalCount);
+
       }
     }) 
   }

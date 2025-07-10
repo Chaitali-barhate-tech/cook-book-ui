@@ -15,5 +15,5 @@
             <a routerLink="{{recipe._id}}">Read Details >></a>
         </div>
     </div>
-    <app-pagination></app-pagination>
+    <app-pagination [totalRecords]="totalCount" [size]="recordsPerPage"></app-pagination>
 </div>
