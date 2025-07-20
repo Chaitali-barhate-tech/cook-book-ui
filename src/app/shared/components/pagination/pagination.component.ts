@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagination',
@@ -8,35 +8,60 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PaginationComponent implements OnInit, OnChanges {
   public currentPage = 1;
-  public pagination = ['<< prev', 'next >>'];
+  public pagination:Array<number> = [];
+  public query = {p: 1};
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   @Input() totalRecords:number = 0;
   @Input() size:number = 10;
 
   ngOnChanges(changes: SimpleChanges): void {
-
+    this.createPagination();
   }
 
-  createPagination(current:number) {
+  nextPage() {
+    this.currentPage = this.currentPage + 1;
+    this.pageClick(this.currentPage);
+  }
+
+  prevPage() {
+    this.currentPage = this.currentPage - 1;
+    this.pageClick(this.currentPage);
+  }
+
+  createPagination() {
+    this.pagination = [];
     let pageCount = Math.ceil(this.totalRecords/this.size);
-    console.log('current >> ', current);
-    if(current === 1) {      
-      this.pagination.splice(1,0, current.toString());
-      this.pagination.splice(2,0, pageCount.toString());
-    } else {
-      this.pagination.splice(1,0, (current-1).toString());
-      this.pagination.splice(2,0, current.toString());
-      this.pagination.splice(3,0, pageCount.toString());
-    }    
+    console.log('current >> ', this.currentPage);
+    console.log('total >> ', this.totalRecords);
+    if(this.currentPage !== 1) {
+      this.pagination.push(1);
+      this.pagination.push(this.currentPage - 1);
+    }
+
+    this.pagination.push(this.currentPage);
+
+    if(this.currentPage !== (pageCount - 1)) {
+      this.pagination.push(this.currentPage + 1);
+      this.pagination.push(pageCount - 1);
+    }
+  }
+  pageClick(page:number) {
+    this.currentPage = page;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        p: page
+      }
+    });
+    this.pagination = [];
+    this.createPagination();
   }
   
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(params => {
       this.currentPage = Number(params.get('p'));
-      console.log('Pagination >>> ', this.currentPage);
-      this.createPagination(this.currentPage);
     })
   }
 }

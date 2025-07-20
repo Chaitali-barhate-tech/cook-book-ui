@@ -10,6 +10,14 @@ const routes: Routes = [
     path: 'recipes',
     loadChildren: () => import('./features/recipes/recipes.module').then(m => m.RecipesModule)
   },
+  {
+    path: 'authors',
+    loadChildren: () => import('./features/authors/authors.module').then(m => m.AuthorsModule)
+  },
+  {
+    path: 'countries',
+    loadChildren: () => import('./features/countries/countries.module').then(m => m.CountriesModule)
+  }
 ];
 
 @NgModule({

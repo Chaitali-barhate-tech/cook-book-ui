@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RecipesService } from '../../services/recipes.service';
+import { CommonService } from 'src/app/shared/services/common.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -9,12 +9,12 @@ import { RecipesService } from '../../services/recipes.service';
 })
 export class RecipeDetailsComponent implements OnInit {
   public recipeDetails:any = {};
-  constructor(private route: ActivatedRoute, private recipesService: RecipesService) {
+  constructor(private route: ActivatedRoute, private commonService: CommonService) {
 
   }
 
   getRecipeDetails(id: any) {
-    this.recipesService.getRecipieDetails(id).subscribe({
+    this.commonService.getRecipieDetails(id).subscribe({
       next: (data) => {
         this.recipeDetails = data;
         console.log('Data >>> ', this.recipeDetails);

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RecipesService {
+export class CommonService {
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,10 @@ export class RecipesService {
 
   getRecipieDetails(id: Number): Observable<any[]> {
     return this.http.get<any[]>(`${this.url}/recipes/details/${id}`);
+  }
+
+  getRecipesbyCountry(page: Number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}/recipes/countries?p=${page}`);
   }
 
 }

@@ -1,0 +1,10 @@
+<div *ngIf="countriesRecipes" class="countries-recipe">
+
+    <div *ngFor="let country of countriesRecipes" class="contries-list">
+        <h3>{{country._id}} <span>({{country.recipeCount}})</span></h3>
+        <ul>
+            <li *ngFor="let recipe of country.list"><a routerLink="/recipes/{{recipe.id}}">{{recipe.Name}}</a></li>
+        </ul>
+    </div>
+    <app-pagination [totalRecords]="countriesCount" [size]="recordsPerPage"></app-pagination>
+</div>

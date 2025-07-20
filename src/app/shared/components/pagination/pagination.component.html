@@ -1,5 +1,13 @@
 <div class="pagination">
     <ul>
-        <li *ngFor="let page of pagination">{{page}}</li>
+        <li>
+            <span (click)="prevPage()">&#11164; Prev</span>
+        </li>
+        <li *ngFor="let page of pagination">
+            <span (click)="pageClick(page)">{{page}}</span>
+        </li>
+        <li>
+            <span (click)="nextPage()">Next &#11166;</span>
+        </li>
     </ul>
 </div>

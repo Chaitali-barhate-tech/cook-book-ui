@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RecipesService } from '../../services/recipes.service';
+import { CommonService } from 'src/app/shared/services/common.service';
 
 @Component({
   selector: 'app-recipes-list',
@@ -11,12 +11,12 @@ export class RecipesListComponent implements OnInit {
   public recipesList: any[] = [];
   public totalCount: number = 0;
   public recordsPerPage: number = 10;
-  constructor(private recipesService: RecipesService, private route: ActivatedRoute) {
+  constructor(private commonService: CommonService, private route: ActivatedRoute) {
 
   }
 
   getRecipesList(page:Number) {
-    this.recipesService.getRecipiesList(page).subscribe({
+    this.commonService.getRecipiesList(page).subscribe({
       next: (data) => {
         this.recipesList = data[0].recipeData;
         this.totalCount = data[0].total[0]?.totalCount;

@@ -1,0 +1,10 @@
+.pagination {
+    ul {
+        display: flex;
+        justify-content: center;
+        li {
+            padding: 4px 10px;
+            cursor: pointer;
+        }
+    }
+}
