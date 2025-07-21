@@ -15,36 +15,40 @@ export class PaginationComponent implements OnInit, OnChanges {
 
   @Input() totalRecords:number = 0;
   @Input() size:number = 10;
+  
+  public pageCount = 0;
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.pageCount = Math.ceil(this.totalRecords/this.size);
     this.createPagination();
   }
 
   nextPage() {
-    this.currentPage = this.currentPage + 1;
-    this.pageClick(this.currentPage);
+    if(this.currentPage < this.pageCount) {
+      this.currentPage = this.currentPage + 1;
+      this.pageClick(this.currentPage);
+    }
   }
 
   prevPage() {
-    this.currentPage = this.currentPage - 1;
-    this.pageClick(this.currentPage);
+    if(this.currentPage > 1) {
+      this.currentPage = this.currentPage - 1;
+      this.pageClick(this.currentPage);
+    }
   }
 
   createPagination() {
     this.pagination = [];
-    let pageCount = Math.ceil(this.totalRecords/this.size);
-    console.log('current >> ', this.currentPage);
-    console.log('total >> ', this.totalRecords);
-    if(this.currentPage !== 1) {
+    if(this.currentPage > 1) {
       this.pagination.push(1);
-      this.pagination.push(this.currentPage - 1);
+      if(this.currentPage > 2) this.pagination.push(this.currentPage - 1);
     }
 
     this.pagination.push(this.currentPage);
 
-    if(this.currentPage !== (pageCount - 1)) {
+    if(this.currentPage < this.pageCount) {
       this.pagination.push(this.currentPage + 1);
-      this.pagination.push(pageCount - 1);
+      if(this.currentPage < (this.pageCount -1)) this.pagination.push(this.pageCount);
     }
   }
   pageClick(page:number) {

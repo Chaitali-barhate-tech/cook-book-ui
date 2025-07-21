@@ -1,13 +1,13 @@
 <div class="pagination">
     <ul>
         <li>
-            <span (click)="prevPage()">&#11164; Prev</span>
+            <span [ngClass]="{'disabled': currentPage===1}" (click)="prevPage()">&#11164; Prev</span>
         </li>
         <li *ngFor="let page of pagination">
-            <span (click)="pageClick(page)">{{page}}</span>
+           <span [ngClass]="{'selected': page===currentPage}" (click)="pageClick(page)">{{page}}</span>
         </li>
         <li>
-            <span (click)="nextPage()">Next &#11166;</span>
+            <span [ngClass]="{'disabled': currentPage===pageCount}" (click)="nextPage()">Next &#11166;</span>
         </li>
     </ul>
 </div>

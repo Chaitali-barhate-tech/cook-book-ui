@@ -1,10 +1,22 @@
 .pagination {
+    margin: 10px 0;
     ul {
         display: flex;
         justify-content: center;
         li {
-            padding: 4px 10px;
-            cursor: pointer;
+            margin: 0 4px;
+            span {
+                padding: 4px 10px;
+                display: block;
+                cursor: pointer;
+                border: 1px solid #40180f;
+                color: #40180f;
+                border-radius: 6px;
+                &.selected {
+                    background-color: #40180f;
+                    color: #fff;
+                }
+            }            
         }
     }
 }

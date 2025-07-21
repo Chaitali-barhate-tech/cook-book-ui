@@ -20,9 +20,6 @@ export class RecipesListComponent implements OnInit {
       next: (data) => {
         this.recipesList = data[0].recipeData;
         this.totalCount = data[0].total[0]?.totalCount;
-        console.log('Data >>> ', this.recipesList);
-        console.log('totalCount >>> ', this.totalCount);
-
       }
     }) 
   }
@@ -30,7 +27,6 @@ export class RecipesListComponent implements OnInit {
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
       const query = Number(params.get('p')) || 1;
-      console.log('Query >> ', query);
       this.getRecipesList(query);
     })
   }
