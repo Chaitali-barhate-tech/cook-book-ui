@@ -4,11 +4,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import { CountriessRoutingModule } from './countries-routing.module';
 import { CountriesListComponent } from './components/countries-list/countries-list.component';
+import { CountryDetailComponent } from './components/country-detail/country-detail.component';
 
 
 @NgModule({
   declarations: [
-    CountriesListComponent
+    CountriesListComponent,
+    CountryDetailComponent
   ],
   imports: [
     CommonModule,

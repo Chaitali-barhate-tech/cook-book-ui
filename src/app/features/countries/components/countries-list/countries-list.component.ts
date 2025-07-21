@@ -10,7 +10,7 @@ import { CommonService } from 'src/app/shared/services/common.service';
 export class CountriesListComponent implements OnInit {
   public countriesRecipes:any[] = [];
   public countriesCount:number = 0;
-  public recordsPerPage:number = 10;
+  public recordsPerPage:number = 12;
 
   constructor(private commonService:CommonService, private route: ActivatedRoute) {
 
@@ -21,7 +21,6 @@ export class CountriesListComponent implements OnInit {
       next: (data) => {
         this.countriesRecipes = data[0].countriesList;
         this.countriesCount = data[0].total[0].totalCountries;
-        console.log('Countries data > ', data);
       }
     })
   }
@@ -29,7 +28,6 @@ export class CountriesListComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(params => {
       const query = Number(params.get('p')) || 1;
-      console.log('Query >> ', query);
       this.getCountriesData(query);
     })
   }

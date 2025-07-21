@@ -1,1 +1,11 @@
-<p>authors-list works!</p>
+<div class="authors-page">
+    <div *ngIf="authorsRecipes" class="authors-list">
+        <div *ngFor="let author of authorsRecipes" class="contries-recipes">
+            <h3>{{author._id}} <span>({{author.recipeCount}})</span></h3>
+            <ul>
+                <li *ngFor="let recipe of author.list"><a routerLink="/recipes/{{recipe.id}}">&#11166; {{recipe.Name}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <app-pagination [totalRecords]="authorsCount" [size]="recordsPerPage"></app-pagination>
+</div>

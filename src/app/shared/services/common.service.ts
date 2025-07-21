@@ -23,4 +23,8 @@ export class CommonService {
     return this.http.get<any[]>(`${this.url}/recipes/countries?p=${page}`);
   }
 
+  getRecipesbyAuthor(page: Number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}/recipes/authors?p=${page}`);
+  }
+
 }
