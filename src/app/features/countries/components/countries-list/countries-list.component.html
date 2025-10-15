@@ -1,12 +1,12 @@
 <div class="countries-page">
     <div *ngIf="countriesRecipes" class="countries-list">
         <div *ngFor="let country of countriesRecipes" class="countries-recipes">
-            <h3>{{country._id}} <span>({{country.recipeCount}})</span></h3>
+            <h3>{{country.country}} <span>({{country.recipeCount}})</span></h3>
             <ul>
                 <li *ngFor="let recipe of country.list"><a routerLink="/recipes/{{recipe.id}}">&#11166; {{recipe.Name}}</a></li>
             </ul>
             <div class="country-detail-link">
-                <a routerLink="/countries/:name">check more recipes >></a>
+                <a routerLink="/countries/{{country.country}}">check more recipes >></a>
             </div>
         </div>
     </div>

@@ -1,1 +1,23 @@
-<p>country-detail works!</p>
+<div class="country-details-page" *ngIf="countryDetails.length">
+    <div class="country-name">
+        <h2>{{countryName}}</h2>
+    </div>
+    <div class="recipes-list">
+        <div *ngFor="let recipe of countryDetails" class="recipe-tile">
+            <h3>{{recipe.Name}}</h3>
+            <p>{{recipe.Description}}</p>
+            <div class="recipe-info">
+                <div class="author-name">
+                    <p>Author: <span>{{recipe.Author}}</span></p>
+                </div>
+                <div class="cooking-time">
+                    <p>Cooking Time: <span>{{recipe.totalTime}}mins</span></p>
+                </div>
+            </div>
+            <div class="details-link">
+                <a routerLink="/recipes/{{recipe._id}}">know more >></a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -11,6 +11,11 @@ export class RecipesListComponent implements OnInit {
   public recipesList: any[] = [];
   public totalCount: number = 0;
   public recordsPerPage: number = 10;
+  public value = 20;
+  public options = {
+    floor: 0,
+    ceil: 200
+  };
   constructor(private commonService: CommonService, private route: ActivatedRoute) {
 
   }
@@ -19,7 +24,7 @@ export class RecipesListComponent implements OnInit {
     this.commonService.getRecipiesList(page).subscribe({
       next: (data) => {
         this.recipesList = data[0].recipeData;
-        this.totalCount = data[0].total[0]?.totalCount;
+        this.totalCount = data[0].metaData[0]?.total;
       }
     }) 
   }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { RecipesRoutingModule } from './recipes-routing.module';
@@ -14,6 +15,7 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
   ],
   imports: [
     CommonModule,
+    NgxSliderModule,
     SharedModule,
     RecipesRoutingModule
   ]
